@@ -72,7 +72,7 @@ const LandingPage = ()=>{
             
 
             {isSM && 
-            <Box sx={{height: '2.5rem', width: '100%',borderBottom: '1px solid grey', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' ,p: '0 .75rem'}}> 
+            <Box sx={{height: '2.5rem', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' ,p: '0 .75rem'}}> 
             
                 <Box ><Typography variant={'h4'} fontWeight={'600'}>FleetPro</Typography> </Box>
                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', height: '100%', gap: '.75rem',}}>
