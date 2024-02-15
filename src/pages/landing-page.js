@@ -57,7 +57,7 @@ const LandingPage = ()=>{
                     </Box>
                 </Box>
                 </Box>}
-                {isMD && <Box sx={{height: '3rem', width: '100%',borderBottom: '1px solid grey', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' ,p: '0 2.5rem'}}> 
+                {isMD && <Box sx={{height: '3rem', width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' ,p: '0 2.5rem'}}> 
                 
                     <Box ><Typography variant={'h4'} fontWeight={'600'}>FleetPro</Typography> </Box>
                     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', height: '100%', gap: '.75rem',}}>
