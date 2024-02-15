@@ -45,7 +45,7 @@ const LandingPage = ()=>{
     return (
         <Grid container sx={{background: '#FAFAFA', height: 'auto', overflow: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
 
-            {!isSM && <>{!isMD && <Box sx={{height: '3rem', width: '100%',background: 'white',borderBottom: '1px solid grey', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' ,p: '0 5rem'}}> 
+            {!isSM && <>{!isMD && <Box sx={{height: '3rem', width: '100%',background: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' ,p: '0 5rem'}}> 
             
                 <Box ><Typography variant={'h4'} fontWeight={'600'}>FleetPro</Typography> </Box>
                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', height: '100%', gap: '.75rem',}}>

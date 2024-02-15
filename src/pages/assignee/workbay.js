@@ -16,7 +16,7 @@ import AdminSideBarMobile from 'components/admin-component/side-bar-mobile'
 import MenuBar from 'components/menu-bar';
 import AlertMessage from 'components/snackbar';
 import SideBarMobile from 'components/side-bar-mobile';
-
+import { FaFilter } from "react-icons/fa";
 
 const Workbay = ()=>{
     const [search, setSearch] = useState("")
@@ -26,6 +26,7 @@ const Workbay = ()=>{
     const [role, setRole] = useState("")
     const [menuIcon, setMenuIcon] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
+    const [filterActive, setFilterActive] = useState(false)
 
 
     const resize = ()=>{
@@ -33,6 +34,7 @@ const Workbay = ()=>{
     }
 
     useEffect(() => {
+        if(menu){setMenu(false)}
         const user = JSON.parse(sessionStorage.getItem('userInfo'))
         if(user === null){
             navigate('/login')
@@ -79,6 +81,11 @@ const Workbay = ()=>{
         setSearch(value)
         setPlanMaintInput(value)
     }
+
+    const activateFilter = ()=>{
+        if (filterActive){setFilterActive(false)}
+        if (!filterActive){setFilterActive(true)}
+    }
     
     const isMD = useMediaQuery(theme => theme.breakpoints.down('md'));
     const isSM = useMediaQuery(theme => theme.breakpoints.down('sm'));
@@ -104,21 +111,31 @@ const Workbay = ()=>{
                     {!isSM && 
                     <>
                         {!isMD && <Box sx={{width: '100%', background: 'white', borderRadius: '.3rem',p:'.75rem'}}>
-                            <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: '2rem' }} >
+                            <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: '1.5rem' }} >
                                 <Typography variant='h2' sx={{fontWeight: '600'}}>Workbay</Typography>
                                 <PlanMaintenance />
                             </Box>
-                            <Box  sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',justifyContent: 'space-between',width: '100%'}}>
-                                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '2rem'}}>
-                                    <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative'}}>
-                                        <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.5rem'} /></Box>
-                                        <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{width: '23rem', height:'2.5rem', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+
+                            <Box sx={{width: '100%'}}>
+                                <Box onClick={activateFilter} sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%', gap: '.75rem', height: '2.5rem', cursor: 'pointer',}}> 
+                                    {!isSM && <FaFilter color={'#1B61E4'} size={'1.75rem'} />}
+                                    {isSM && <FaFilter color={'#1B61E4'} size={'1.5rem'} />}
+                                    {!isSM && <Typography variant='h3' fontWeight={'500'} >Filters</Typography> }
+                                    {isSM && <Typography variant='h4' fontWeight={'500'} >Filters</Typography> }
+                                </Box>
+                                {filterActive && <Box  sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',justifyContent: 'space-between',width: '100%', pt: '.75rem', mt: '.75rem', borderTop: '3px solid whitesmoke'}}>
+                                    <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '2rem'}}>
+                                        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative'}}>
+                                            <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.5rem'} /></Box>
+                                            <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{width: '23rem', height:'2.5rem', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+                                        </Box>
                                     </Box>
-                                </Box>
-                                <Box sx={{width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100%', alignItems: 'center' }}>
-                                    <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.5rem', width: '11rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
-                                </Box>
+                                    <Box sx={{width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100%', alignItems: 'center' }}>
+                                        <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.5rem', width: '11rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
+                                    </Box>
+                                </Box>}
                             </Box>
+
                         </Box>}
 
                         {isMD && <Box sx={{width: '100%', background: 'white', borderRadius: '.3rem',p:'.75rem'}}>
@@ -145,23 +162,33 @@ const Workbay = ()=>{
                     }
 
                     {isSM && <Box sx={{width: '100%', background: 'white', borderRadius: '.3rem',p:'.75rem'}}>
-                        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: '2rem' }} >
+                        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: '1.5rem' }} >
                             <Typography variant='h3' sx={{fontWeight: '500'}}>Workbay</Typography>
                             <PlanMaintenance />
                         </Box>
 
-                        <Box  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.5rem'}}>
-                            <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', width: '100%'}}>
-                                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '100%'}}>
-                                    <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.35rem'} /></Box>
-                                    <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{height:'2.5rem', width: '100%', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+                        <Box sx={{width: '100%'}}>
+                            <Box onClick={activateFilter} sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%', gap: '.75rem', height: '2.5rem', cursor: 'pointer', }}> 
+                                <FaFilter color={'#1B61E4'} size={'1.5rem'} />
+                                <Typography variant='h4' fontWeight={'500'} >Filters</Typography> 
+                            </Box>
+                            
+                            {filterActive && <Box  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', pt: '.75rem', mt: '.75rem', borderTop: '3px solid whitesmoke'}}>
+                                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', width: '100%'}}>
+                                    <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '100%'}}>
+                                        <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.35rem'} /></Box>
+                                        <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{height:'2.5rem', width: '100%', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+                                    </Box>
                                 </Box>
-                            </Box>
-                            <Box sx={{width: '100%', display: 'flex', justifyContent: 'space-between', height: '100%', alignItems: 'center' }}>
-                                <Box className="mid-btn primary-btn" sx={{width: '7rem', height: '2.25rem'}}>Filter</Box>
-                                <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.25rem', width: '10rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
-                            </Box>
+                                <Box sx={{width: '100%', display: 'flex', justifyContent: 'space-between', height: '100%', alignItems: 'center' }}>
+                                    <Box className="mid-btn primary-btn" sx={{width: '7rem', height: '2.25rem'}}>Filter</Box>
+                                    <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.25rem', width: '10rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
+                                </Box>
+                            </Box>}
+
                         </Box>
+
+
                     </Box>}
 
                     <Box sx={{width: '100%',  mt: '.5rem',background: 'white', borderRadius: '.3rem',p:'.75rem'}}>
