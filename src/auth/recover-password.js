@@ -14,7 +14,7 @@ import david from '../asset/david.jpg'
 import AlertMessage from 'components/snackbar';
 
 const RecoverPassword = () => {
-    const [credentials, setCredentials] = useState({username: "", password: "", password02: "", code: ''})
+    const [credentials, setCredentials] = useState({username: "", password: "", checkPassword: "", code: ''})
     const [card, setCard] = useState(true)
     const [butt, setButt] = useState(true)
     const [loading, setLoading] = useState(false);
@@ -62,7 +62,7 @@ const RecoverPassword = () => {
             setCredentials({...credentials, username:""})
             setCard(false)
             setButt(false)
-            setCredentials({...credentials, code: "", password: "", password02: '', username: ''})
+            setCredentials({...credentials, code: "", password: "", checkPassword: '', username: ''})
             navigate('/login')
             
             } catch (err) {
@@ -81,10 +81,10 @@ const RecoverPassword = () => {
 
     const handleSubmit = async(e)=>{
         if (!credentials.code){ setAlertMsg("Please provide you unique code."); setAlertSeverity('warning'); setOpenAlert(true);}
-        if (!credentials.password || !credentials.password02){
+        if (!credentials.password || !credentials.checkPassword){
             setAlertMsg("Please provide a new password "); setAlertSeverity('warning'); setOpenAlert(true);
         }
-        if (credentials.password !== credentials.password02){
+        if (credentials.password !== credentials.checkPassword){
             setAlertMsg("Passwords do not match, check passwords and try again!!!"); setAlertSeverity('warning'); setOpenAlert(true);
         }
         else{
@@ -108,7 +108,7 @@ const RecoverPassword = () => {
                 }else{
                 setAlertMsg(err.response.data.err); setAlertSeverity('warning'); setOpenAlert(true);
                 setLoading(false)
-                setCredentials({...credentials, password: "", password02})
+                setCredentials({...credentials, password: "", checkPassword})
                 }
         }
         
@@ -268,7 +268,7 @@ const RecoverPassword = () => {
                         </Box>
                         <Box sx={{mb: 2}}>
                             <Typography  variant='h5' sx={{mb: '.5rem'}}>Re-enter Password</Typography>
-                            <input className='input  search-input' name = {"password02"} value={credentials.password02} onChange={(e)=> handleChange(e) }type="text" style={{width: '100%', height:'3rem', background: "white", color: 'black', border: '1px solid gray'}}/>
+                            <input className='input  search-input' name = {"checkPassword"} value={credentials.checkPassword} onChange={(e)=> handleChange(e) }type="text" style={{width: '100%', height:'3rem', background: "white", color: 'black', border: '1px solid gray'}}/>
                         </Box>
                         
                     </Box>}
@@ -346,7 +346,7 @@ const RecoverPassword = () => {
                         </Box>
                         <Box sx={{mb: 2}}>
                             <Typography  variant='h5' sx={{mb: '.5rem'}}>Re-enter Password</Typography>
-                            <input className='input  search-input' name = {"password02"} value={credentials.password02} onChange={(e)=> handleChange(e) }type="text" style={{width: '100%', height:'2.5rem', background: "white", color: 'black', border: '1px solid gray'}}/>
+                            <input className='input  search-input' name = {"checkPassword"} value={credentials.checkPassword} onChange={(e)=> handleChange(e) }type="text" style={{width: '100%', height:'2.5rem', background: "white", color: 'black', border: '1px solid gray'}}/>
                         </Box>
                         
                     </Box>}

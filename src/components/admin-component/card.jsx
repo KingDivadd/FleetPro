@@ -163,7 +163,7 @@ export const VehicleInformationCard = ({vehicle})=>{
 export const VehicleStatusCard = ({vehicle})=>{
     const [status, setStatus] = useState('')
     const [show, setShow] = useState(false)
-    const {updateVehicle, setUpdateVehicle} = ChatState()
+    const {updateVehicle, setUpdateVehicle, setAlertMsg, setOpenAlert, setAlertSeverity} = ChatState()
 
     useEffect(() => {
         if (vehicle._id){

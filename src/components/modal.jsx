@@ -373,6 +373,7 @@ export function CreateLogModal() {
     const [showEFuelDrop, setShowEFuelDrop] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [modalStyle, setModalStyle] = useState(false)
+    const navigate = useNavigate()
 
     const resize = ()=>{
         setWidth(window.innerWidth)
@@ -608,6 +609,7 @@ export function UpdateDailyLogModal({showModal, log}) {
     const [showEFuelDrop, setShowEFuelDrop] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [modalStyle, setModalStyle] = useState(false)
+    const navigate= useNavigate()
 
     const resize = ()=>{
         setWidth(window.innerWidth)
@@ -656,7 +658,7 @@ export function UpdateDailyLogModal({showModal, log}) {
         }
         else{
             try {
-            const token = localStorage.getItem('token');
+            const token = sessionStorage.getItem('token');
             if (token === null){navigate('/login')}
             const user = JSON.parse(sessionStorage.getItem('userInfo'))
             if (user=== null){navigate('/login')}
@@ -834,6 +836,7 @@ export function ReportModal() {
     const [loading, setLoading] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [bigWidth, setBigWidth] = useState(true)
+    const navigate = useNavigate()
 
     const resize = ()=>{
         setWidth(window.innerWidth)
@@ -856,7 +859,7 @@ export function ReportModal() {
     const handleChange = (e)=>{
         const name = e.target.name
         const value = e.target.value
-        setReport({...createLog, [name]: value})
+        setReport({...report, [name]: value})
     }
 
     const handleCreateReport = async()=>{
@@ -867,7 +870,7 @@ export function ReportModal() {
             try {
                 const vehicle_id = ""; const location = report.location; const description = report.description; const image = report.image 
 
-                const token = sessonStorage.getItem('token')
+                const token = sessionStorage.getItem('token')
                 if (token === null){navigate('/login')}
                 const newReport = await axios.post("https://futa-fleet-guard.onrender.com/api/incedents/new-incedent", {vehicle_id, location, description, image },{
                     headers: {
@@ -1158,6 +1161,7 @@ export function CreateMaintLogModal() {
     const [open, setOpen] = React.useState(false);
     const [maintLog, setMaintLog] = useState({concerns: '', services: [], cost: ''})
     const [openServices, setOpenServices]= useState(false)
+    const [showDrop, setShowDrop] = useState(false)
     const {alertMsg, setAlertMsg, openAlert,setOpenAlert, alertSeverity, setAlertSeverity} = ChatState()
 
     const services = ['Oil Change', 'Brake Inspension and Repair', 'Tire replacement', 'Suspension Inspection/Repair', 'Engine Check', 'AC Inspection/Repair', 'Head Lamp Replacement', 'Tracficator(s) Replacement' ]
@@ -1205,6 +1209,13 @@ export function CreateMaintLogModal() {
     const handleRemoveService = (data)=>{
         const newServices = maintLog.services.filter((res)=> res !== data)
         setMaintLog({...maintLog, services: newServices})
+    }
+
+    const handleDropdown = ()=>{
+
+    }
+    const handleDroplist = ()=>{
+
     }
 
     return (
@@ -1281,6 +1292,7 @@ export function MaintHisModal() {
     const [maintLog, setMaintLog] = useState({concerns: '', services: [], cost: ''})
     const [openServices, setOpenServices]= useState(false)
     const [loading, setLoading] = useState(false);
+    const [showDrop, setShowDrop] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
     const {alertMsg, setAlertMsg, openAlert,setOpenAlert, alertSeverity, setAlertSeverity, showHis, setShowHis, maintData, setMaintData,} = ChatState()
 
@@ -1339,6 +1351,14 @@ export function MaintHisModal() {
         setTimeout(() => {
             setLoading(false);
         }, 3000);
+    }
+
+    const handleDropdown = ()=>{
+        
+    }
+
+    const handleDroplist = ()=>{
+
     }
 
     return (
@@ -1430,6 +1450,7 @@ export function VehicleServiceSeletctStatusModal({res, statusModal, newStatus}) 
     const handleClose = () => setOpen(false);
     const [modalStyle, setModalStyle] = useState(true)
     const [width, setWidth] = useState(window.innerWidth)
+    const navigate = useNavigate()
     
 
     const resize = ()=>{

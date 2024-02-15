@@ -41,7 +41,6 @@ const DriverDashboard = ()=>{
             setShow(true)
         }
         if (userInfo === null){
-            fetchUserInfo()
         }
 
         window.addEventListener('resize', resize)
@@ -55,6 +54,8 @@ const DriverDashboard = ()=>{
             window.removeEventListener('resize', resize)
         }
     }, [width])
+
+    
 
     
     const handlePage = (value)=>{

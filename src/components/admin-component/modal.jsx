@@ -401,7 +401,6 @@ export function AddDriverModal() {
     const handleClose = () => setOpen(false);
 
     const handleChange = (e)=>{
-        setAge(e.target.value)
         const name = e.target.name
         const value = e.target.value
         setCreateLog({...createLog, [name]: value})
@@ -554,10 +553,8 @@ export function AssignVehicle({vehicle}) {
     }
 
     const handleChange = (e)=>{
-        setAge(e.target.value)
         const name = e.target.name
         const value = e.target.value
-        setCreateLog({...createLog, [name]: value})
     }
 
     const handleNext = (e)=>{

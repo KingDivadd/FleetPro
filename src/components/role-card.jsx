@@ -713,6 +713,11 @@ export const MaintReportCard = ({})=>{
     const handleDelete = () => {
         console.info('You clicked the delete icon.');
     };
+
+    const handleChange = (e)=>{
+        const name = e.target.name
+        const value =e.target.value
+    }
     
     return (
         <Card  sx={{ background: '#FFFFF' , width: '100%', cursor: 'pointer', }}>
@@ -747,6 +752,7 @@ export const MaintReportCard = ({})=>{
 }
 
 export const MaintStatusCard = ()=>{
+    const [status, setStatus] = useState('pending')
 
 
     useEffect(() => {
@@ -899,6 +905,7 @@ export const VehicleServiceMaintReportCard = ({data})=>{
     const [maintReport, setMaintReport] = useState({services: [], issues: "", date: "", image: ""})
     const {setOpenAlert, setAlertMsg, setAlertSeverity, personnelReport, setPersonnelReport} = ChatState()
     const services = ['Oil Change', 'Brake Inspension and Repair', 'Tire replacement', 'Suspension Inspection/Repair', 'Engine Check', 'AC Inspection/Repair', 'Head Lamp Replacement', 'Tracficator(s) Replacement' ]
+    const navigate = useNavigate()
         
     useEffect(()=>{
         if(data._id){
