@@ -173,7 +173,7 @@ const VehicleLog = ()=>{
                                 <Typography variant='h4' fontWeight={'500'} >Filters</Typography> 
                             </Box>
                             
-                            {filterActive && <Box  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', pt: '.75rem', mt: '.75rem', borderTop: '3px solid whitesmoke'}}>
+                            {filterActive && <Box  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '.75rem', pt: '.75rem', mt: '.75rem', borderTop: '3px solid whitesmoke'}}>
                                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', width: '100%'}}>
                                     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '100%'}}>
                                         <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.35rem'} /></Box>
