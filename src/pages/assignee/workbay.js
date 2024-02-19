@@ -127,11 +127,14 @@ const Workbay = ()=>{
                                     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: '2rem'}}>
                                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative'}}>
                                             <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.5rem'} /></Box>
+                                            
                                             <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{width: '23rem', height:'2.5rem', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+                                            
                                         </Box>
                                     </Box>
                                     <Box sx={{width: '100%', display: 'flex', justifyContent: 'flex-end', height: '100%', alignItems: 'center' }}>
                                         <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.5rem', width: '11rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
+                                            
                                     </Box>
                                 </Box>}
                             </Box>
@@ -141,6 +144,7 @@ const Workbay = ()=>{
                         {isMD && <Box sx={{width: '100%', background: 'white', borderRadius: '.3rem',p:'.75rem'}}>
                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: '2rem' }} >
                             <Typography variant='h3' sx={{fontWeight: '500'}}>Workbay</Typography>
+                            
                             <PlanMaintenance />
                         </Box>
 
@@ -149,11 +153,13 @@ const Workbay = ()=>{
                                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '100%'}}>
                                     <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.35rem'} /></Box>
                                     <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{height:'2.5rem', width: '100%', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+                                    
                                 </Box>
                             </Box>
                             <Box sx={{width: '100%', display: 'flex', justifyContent: 'space-between', height: '100%', alignItems: 'center' }}>
                                 <Box className="mid-btn primary-btn" sx={{width: '10rem', height: '2.25rem'}}>Filter</Box>
                                 <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.25rem', width: '10rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
+                                
                             </Box>
                         </Box>
                         </Box>}
@@ -164,6 +170,7 @@ const Workbay = ()=>{
                     {isSM && <Box sx={{width: '100%', background: 'white', borderRadius: '.3rem',p:'.75rem'}}>
                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', mb: '1.5rem' }} >
                             <Typography variant='h3' sx={{fontWeight: '500'}}>Workbay</Typography>
+                            
                             <PlanMaintenance />
                         </Box>
 
@@ -178,11 +185,13 @@ const Workbay = ()=>{
                                     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'relative', width: '100%'}}>
                                         <Box sx={{position: 'absolute', p: '.2rem', height: '100%', left: '.15rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><IoSearch size={'1.35rem'} /></Box>
                                         <input className='input  search-input' name = 'serch-text' value={planMaintInput} placeholder='Search for maint. logs' onChange={(e)=> handleChange(e) } type="text" style={{height:'2.5rem', width: '100%', background: "white", color: 'black', border: '1px solid gray', paddingLeft: '2.5rem'}}/>   
+                                        
                                     </Box>
                                 </Box>
                                 <Box sx={{width: '100%', display: 'flex', justifyContent: 'space-between', height: '100%', alignItems: 'center' }}>
                                     <Box className="mid-btn primary-btn" sx={{width: '7rem', height: '2.25rem'}}>Filter</Box>
                                     <input className='input' onChange={handleChange} type="date" name="search" value={search} style={{height: '2.25rem', width: '10rem', outline: 'none', padding: '0 .75rem', fontSize: '1rem'}} />
+                                    
                                 </Box>
                             </Box>}
 

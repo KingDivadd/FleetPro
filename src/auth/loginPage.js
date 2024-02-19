@@ -54,14 +54,16 @@ const Login = () => {
         const fetchUserInfo = async() => {
             try {
                 const token = sessionStorage.getItem('token')
+                console.log('fetch user info', token)
                 const user = await axios.post("https://futa-fleet-guard.onrender.com/api/user/find-user", {}, {
                     headers: {
                         "Content-type": "Application/json",
                         "Authorization": `Bearer ${token}`
                     }
                 })
+                console.log('fetched user info', user.data)
                 sessionStorage.setItem('userInfo', JSON.stringify(user.data))
-                navigate('/dashboard')
+                // navigate('/dashboard')
             } catch (err) {
                 if (!navigator.onLine) {
                     setAlertMsg("No internet connection"); setAlertSeverity("warning"); setOpenAlert(true); setLoading(false)
@@ -85,6 +87,7 @@ const Login = () => {
                     setAlertMsg("Network Error!!!"); setAlertSeverity('warning'); setOpenAlert(true); setLoading(false)
                 }else{
                     setLoading(true);
+                    console.log('submiting..')
                     handleLogin()
                 }
             }
@@ -92,6 +95,7 @@ const Login = () => {
 
         const handleLogin = async(e)=>{
             try {
+                    
                     const email_staffId = credentials.username
                     const password = credentials.password
                     const auth = await axios.post("https://futa-fleet-guard.onrender.com/api/auth/login", { email_staffId, password }, {
@@ -99,6 +103,7 @@ const Login = () => {
                             "Content-type": "Application/json"
                         }
                     })
+                    console.log('auth', auth.data)
                     sessionStorage.setItem('token', auth.data.token)
                     setLoading(false)
                     setCredentials({ password: "", username: "" })

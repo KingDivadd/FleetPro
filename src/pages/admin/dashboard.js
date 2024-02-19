@@ -84,7 +84,7 @@ const AdminDashboard = ()=>{
                         <Grid  item xs={12} sm={12} md={7.5} lg={8.5}  sx={{background: '#FAFAFA',p: '.5rem .35rem', borderRadius: '.3rem', overflowY:'auto', }}>
                             {!isSM && <Box sx={{ display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'flex-start', gap: 1 }}>
                                 <Typography component={"h2"} variant='h2' color={'black'} sx={{fontWeight: '600'}}>Welcome {user.loggedInUser.firstName}</Typography>
-                                <Typography component="h5" variant="h4">Manage all vehicles.</Typography>
+                                <Typography component="h5" variant="h4">Manage all vehicles...</Typography>
                             </Box>}
                             {isSM && <Box sx={{ display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'flex-start', gap: 1 }}>
                                 <Typography component={"h2"} variant='h3' color={'black'} sx={{fontWeight: '600'}}>Welcome {user.loggedInUser.firstName}</Typography>
@@ -92,13 +92,13 @@ const AdminDashboard = ()=>{
                             </Box>}
 
                             <Box sx={{mt: '2rem',display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(18rem, 1fr))', gap: '.75rem',}}>
-                                <DashCard title={'Available Vehicles'} value={0} icon={ <FaCarAlt size={'2rem'} color='#1B61E4' />} suffix={""} />
-                                <DashCard title={"Unassigned Vehicles"} value={40} icon={<FaCarOn size={'2rem'} color='orangered' />} suffix={""} />
-                                <DashCard title={"Assigned Driver"} value={90} icon={<IoPerson  size={'2rem'} color='orangered'/>} suffix={"Km"} />
-                                <DashCard title={"Unassigned Driver"} value={"200"} icon={<IoPerson  size={'2rem'} color='green'/>} suffix={"Km"} />
-                                <DashCard title={"Vehicle Assignee"} value={"28 January, 2024"} icon={<IoPerson size={'2rem'} color='#1B61E4
+                                <DashCard title={'Available Vehicles'} value={user.admin_dashboard.total_avail_vehicles} icon={ <FaCarAlt size={'2rem'} color='#1B61E4' />} suffix={""} />
+                                <DashCard title={"Assigned Vehicles"} value={user.admin_dashboard.total_assigned_vehicles} icon={<FaCarOn size={'2rem'} color='orangered' />} suffix={""} />
+                                <DashCard title={"Assigned Driver"} value={user.admin_dashboard.total_assigned_driver} icon={<IoPerson  size={'2rem'} color='orangered'/>} suffix={""} />
+                                <DashCard title={"Unassigned Driver"} value={user.admin_dashboard.total_unassigned_driver} icon={<IoPerson  size={'2rem'} color='green'/>} suffix={""} />
+                                <DashCard title={"Vehicle Assignee"} value={user.admin_dashboard.total_vehicle_assingee} icon={<IoPerson size={'2rem'} color='#1B61E4
                                 ' />} suffix={""} />
-                                <DashCard title={"Unoperational Vehicles"} value={"10 Febuary, 2024"} icon={<FaCarCrash size={'2rem'} color='brown' />} suffix={""} />
+                                <DashCard title={"Unoperational Vehicles"} value={0} icon={<FaCarCrash size={'2rem'} color='brown' />} suffix={""} />
                             </Box>
                             <Box sx={{mt: '.75rem'}}>
                                 <MaintAnalyticsCard />

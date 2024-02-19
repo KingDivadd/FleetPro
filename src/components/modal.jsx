@@ -952,6 +952,25 @@ export function FeedBackModal() {
     const [count, setCount] = useState(0)
     const [index, setIndex] = useState([])
     const [inputError, setInputError] = useState(false)
+    const [modalStyle, setModalStyle] = useState(true)
+    const [width, setWidth] = useState(window.innerWidth)
+
+    const resize = ()=>{
+        setWidth(window.innerWidth)
+    }
+
+    useEffect(()=>{
+        window.addEventListener('resize', resize)
+        if (width <= 599 ){
+            setModalStyle(true)
+        }
+        if (width > 599){
+            setModalStyle(false)
+        }
+        return()=>{
+            window.removeEventListener('resize', resize)
+        }
+    },[width])
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -993,7 +1012,7 @@ export function FeedBackModal() {
                 <Typography variant='h6'>Give Feedback</Typography> 
             </Box>}
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description" >
-                <Box sx={reportStyle}>
+                <Box sx={modalStyle? reportStyleMobile: reportStyle}>
                     <Typography variant="h4" fontWeight={'600'}>Rate your experience</Typography>
                     <Typography variant='h5' fontWeight={'500'} sx={{mt: '.75rem'}}>Are you satisfied with your service</Typography>
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', m: '1.25rem 0', gap: '.75rem'}}>
@@ -1474,7 +1493,7 @@ export function VehicleServiceSeletctStatusModal({res, statusModal, newStatus}) 
         return()=>{
             window.removeEventListener('resize', resize)
         }
-    }, [statusModal])
+    }, [statusModal, width])
     
     const handleProceed = ()=>{
         if (navigator.onLine){

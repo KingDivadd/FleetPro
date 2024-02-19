@@ -18,6 +18,7 @@ const Dash = ()=>{
 
     useEffect(() => {
         const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+        console.log(userInfo)
         if(userInfo !== null){
             setLoggedInUser(userInfo.loggedInUser)
             setLoading(false)
