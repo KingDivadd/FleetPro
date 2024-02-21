@@ -24,6 +24,7 @@ const Dash = ()=>{
             setLoading(false)
         }        
         else{
+            console.log('just fetching user info')
             fetchUserInfo()
         }
     }, [])

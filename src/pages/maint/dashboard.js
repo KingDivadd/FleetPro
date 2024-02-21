@@ -95,10 +95,10 @@ const MaintDashboard = ()=>{
                         </Box>}
 
                         <Box sx={{mt: '2rem',display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))', gap: '.75rem',}}>
-                            <MaintDashCard title={'Services Provided'} value={0} icon={ <TfiLayoutAccordionList size={'2rem'} color='#1B61E4' />} suffix={""} />
-                            <MaintDashCard title={'Pending Requests'} value={0} icon={ <MdPendingActions size={'2.2rem'} color='#FF571A' />} suffix={""} />
-                            <MaintDashCard title={'Completed Requests'} value={0} icon={ <FiCheckSquare size={'2rem'} color='#00B300'/>} suffix={""} />
-                            <MaintDashCard title={'Avg Response Time'} value={0} icon={ <LuCalendarClock size={'2rem'} color='#1B61E4' />} suffix={""} />
+                            <MaintDashCard title={'Services Provided'} value={user.maint_dashboard.total_services_provided} icon={ <TfiLayoutAccordionList size={'2rem'} color='#1B61E4' />} suffix={""} />
+                            <MaintDashCard title={'Pending Requests'} value={user.maint_dashboard.total_pending_requests } icon={ <MdPendingActions size={'2.2rem'} color='#FF571A' />} suffix={""} />
+                            <MaintDashCard title={'Completed Requests'} value={user.maint_dashboard.total_completed_request} icon={ <FiCheckSquare size={'2rem'} color='#00B300'/>} suffix={""} />
+                            <MaintDashCard title={'Avg Response Time'} value={user.maint_dashboard.next_planned_maint} icon={ <LuCalendarClock size={'2rem'} color='#1B61E4' />} suffix={""} />
                         </Box>
 
                         <Box sx={{mt: '.75rem'}}>

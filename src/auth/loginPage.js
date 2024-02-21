@@ -63,7 +63,7 @@ const Login = () => {
                 })
                 console.log('fetched user info', user.data)
                 sessionStorage.setItem('userInfo', JSON.stringify(user.data))
-                // navigate('/dashboard')
+                navigate('/dashboard')
             } catch (err) {
                 if (!navigator.onLine) {
                     setAlertMsg("No internet connection"); setAlertSeverity("warning"); setOpenAlert(true); setLoading(false)
@@ -103,7 +103,6 @@ const Login = () => {
                             "Content-type": "Application/json"
                         }
                     })
-                    console.log('auth', auth.data)
                     sessionStorage.setItem('token', auth.data.token)
                     setLoading(false)
                     setCredentials({ password: "", username: "" })
@@ -112,10 +111,8 @@ const Login = () => {
                     if (!navigator.onLine) {
                         setAlertMsg("No internet connection"); setAlertSeverity("warning"); setOpenAlert(true); setLoading(false);
                     } else if (err.response) {
-                        // Handle server errors
                         setAlertMsg(err.response.data.err || "An error occurred"); setAlertSeverity("warning"); setOpenAlert(true); setLoading(false);
                     } else {
-                        // Handle network errors
                         setAlertMsg("An error occurred"); setAlertSeverity("warning"); setOpenAlert(true); setLoading(false);
                     }
                 }
