@@ -7,6 +7,7 @@ body,
     height: 100%;
     width: 100%;
     font-family: "Manrope";
+    overflow: hidden;
 }
 
 
@@ -29,6 +30,16 @@ body,
     height: 0rem;
 }
 
+.scrollable-element {
+    overflow: hidden;
+}
+
+.back-btn {
+    display: none;
+}
+
+.primary-btn {}
+
 .input {
     outline: none;
     font-family: "Montserrat";
@@ -40,454 +51,135 @@ body,
 
 .input:focus {
     border: none;
-    outline: 1px solid #1B61E4;
+    outline: 1px solid green;
 }
 
-.input-error {
-    outline: 2px solid #FF571A;
-    border-color: #FF571A;
-}
-
-.label {
+.half-input {
+    outline: none;
     font-family: "Montserrat";
-    width: 100%;
-    margin: auto .5rem;
-}
-
-.no-hover-icon {
-    color: 'white';
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    color: 'white';
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    margin-right: .3rem;
-    margin-left: .5rem;
-    font-size: '1.5rem';
-}
-
-.icon:hover {
-    color: #1B61E4;
-}
-
-.warning-input {}
-
-.warning-input:focus {
-    border: none;
-    outline: 2px solid orangered;
-}
-
-.smButton {
-    background-color: orange;
-    transition: all 150ms ease;
-}
-
-.smButton:hover {
-    cursor: pointer;
-    color: white;
-    background-color: greenyellow;
-}
-
-.mid-btn {
-    height: 2.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: .3rem;
-    cursor: pointer;
-}
-
-.primary-btn {
-    background: #1B61E4;
-    color: white;
-    transition: all 150ms ease;
-}
-
-.primary-btn:hover {
-    cursor: pointer;
-    background-color: #ffffff;
-    color: black;
-    border: 1px solid #1B61E4;
-}
-
-.send-msg {
-    background: #ffffff;
-    color: #1B61E4;
-    transition: all 200ms ease;
-}
-
-.send-msg:hover {
-    background: #1B61E4;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-.back-btn {
-    background: #FF571A;
-    color: white;
-    transition: all 200ms ease;
-}
-
-.back-btn:hover {
-    cursor: pointer;
-    background: #ffffff;
-    color: black;
-    border: 1px solid #FF571A;
-}
-
-.btn-1 {
-    /* display: none; */
-    background-color: #1B61E4;
-    color: white;
-    height: 2.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: .3rem;
-    transition: all 150ms ease;
-}
-
-.btn-1:hover {
-    cursor: pointer;
-    background-color: white;
-    color: #1B61E4
-}
-
-.active-btn-1 {
-    cursor: pointer;
-    background-color: white;
-    color: #1B61E4
-}
-
-.dormant {
-    transition: all 150ms ease;
-}
-
-.dormant:hover {
-    cursor: pointer;
-    background-color: rgb(240, 172, 89);
-    color: white;
-}
-
-.hollow-btn {
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    border-radius: .3rem;
-    border: 1px solid gray;
-    transition: all 150ms ease;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 2.5rem;
-    gap: .5rem;
-    transition: all 200ms ease;
-}
-
-.hollow-btn:hover {
-    background-color: #1B61E4;
-    color: white;
-    border-color: #1B61E4;
-}
-
-.register {
-    height: 2.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: .3rem;
-    cursor: pointer;
-    transition: all 200ms ease;
-}
-
-.register:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid #1B61E4;
-}
-
-.small-rounded-btn {
-    display: flex;
-    align-items: center;
-    border-radius: .35rem;
-    padding: 0 .75rem;
-    height: 1.75rem;
-    width: fit-content;
-    border: 1px solid gray;
-    color: black;
-    transition: all 150ms ease;
-    margin-bottom: .5rem;
-}
-
-.small-rounded-btn:last-child {
-    margin-bottom: 0;
-}
-
-.small-rounded-btn:hover {
-    border-color: #1B61E4;
-    cursor: pointer;
-}
-
-.service-icon {
-    cursor: pointer;
-    color: black;
-}
-
-.service-icon:hover {
-    color: red;
-}
-
-.warning-btn-1:hover {
-    cursor: pointer;
-    background-color: rgba(255, 123, 0, 0.963);
-    color: white;
-}
-
-.btn-2 {
-    background-color: 'orange';
-    color: 'red'
-}
-
-.car-box {
-    cursor: pointer;
-    transition: all 150ms ease;
-}
-
-.car-box:hover {
-    transform: scale(1.01);
-}
-
-.show-menu {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: -15rem;
-    -webkit-animation: hide 200ms linear forwards;
-    animation: show 200ms linear forwards
-}
-
-@keyframes show {
-    100% {
-        left: 0rem;
-    }
-}
-
-@-webkit-keyframes show {
-    100% {
-        left: 0rem;
-    }
-}
-
-.hide-menu {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0rem;
-    -webkit-animation: hide 200ms linear forwards;
-    animation: hide 200ms linear forwards;
-}
-
-@-webkit-keyframes hide {
-    100% {
-        left: -15rem;
-    }
-}
-
-@keyframes hide {
-    100% {
-        left: -15rem;
-    }
-}
-
-.stat {
-    height: 2.75rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid gray;
-    border-radius: .3rem;
-    gap: '.5rem';
     padding: 0 .5rem;
-    transition: all 200ms ease;
-    gap: 1rem;
-    position: relative;
-}
-
-.stat::after {
-    content: "";
-    height: 1.52rem;
-    width: 90%;
-    border: 1px solid grey;
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    bottom: -1.55rem;
-    border-top: none;
-    border-bottom: none;
-}
-
-.stat:last-child::after {
+    font-size: 1rem;
+    border-radius: .2rem;
     border: none;
+    border-bottom: 1px solid gray;
 }
 
-.pending-stat {
-    background-color: #FF571A;
-    border-color: #FF571A;
-    color: white;
+.half-input:focus {
+    border-bottom: 1.5px solid green;
 }
 
-.pending {
-    color: #FF571A;
-}
-
-.accepted-stat {
-    background-color: orange;
-    border-color: orange;
-    color: white;
-}
-
-.accepted {
-    color: orange;
-}
-
-.in-shop-stat {
-    background-color: #1B61E4;
-    border-color: #1B61E4;
-    color: white;
-}
-
-.in-shop {
-    color: #1B61E4;
-}
-
-.in-progress-stat {
-    background-color: #5F91EC;
-    border-color: #5F91EC;
-    color: white;
-}
-
-.in-progress {
-    color: #5F91EC;
-}
-
-.completed-stat {
-    background-color: green;
-    border-color: green;
-    color: white;
-}
-
-.completed {
-    color: green;
-}
-
-.completed-stat:last-child::after {
-    display: none;
-    height: 0;
-}
-
-.active-report {
-    border: 1px solid #E8EFFC;
-    background: #E8EFFC;
-    color: #1B61E4;
-}
-
-.in-active-report {
-    border: 1px solid #E8EFFC;
-    background: white;
-    color: black;
-    transition: all 200ms ease;
-}
-
-.in-active-report:hover {
-    background: #5F91EC;
-    color: white;
-}
-
-.notification {
-    border-bottom: 1px solid grey;
+.side-grid-box {
+    height: 2.5rem;
+    width: 100%;
+    padding-left: 1.5rem;
     cursor: pointer;
     transition: all 200ms ease;
 }
 
-.notification:last-child {
-    border-bottom-color: white;
+.side-grid-box:hover {
+    background-color: #F6F5FF;
 }
 
-.notification:hover {
-    background: whitesmoke;
-}
-
-.star {
-    color: orange;
-}
-
-.starFill {
-    color: orange;
-}
-
-.service-list {
-    height: 2rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: .25rem;
-    padding: 0 .5rem;
-    transition: all 200ms ease;
-}
-
-.service-list:hover {
-    background: whitesmoke;
-}
-
-.cont {
+.side-grid-box-active {
+    height: 2.5rem;
+    width: 100%;
+    padding-left: 1.5rem;
+    background-color: #e4e0fe;
     position: relative;
+    cursor: pointer;
+    transition: all 200ms ease;
+    color: #644DFF;
 }
 
-.cont-abs {
+.side-grid-box-active::after {
+    position: absolute;
+    content: '';
+    width: .2rem;
+    height: 100%;
+    background-color: #644DFF;
+    top: 0;
+    right: 0;
+}
+
+.side-grid-box-logout {
+    height: 2.5rem;
+    width: 100%;
+    padding-left: 1.5rem;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.side-grid-box-logout:hover {
+    background-color: rgb(255, 205, 186);
+}
+
+.chat-list {
+    cursor: pointer;
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+
+.chat-list:hover {
     background-color: whitesmoke;
-    border: 1px solid gray;
-    border-radius: .3rem;
-    position: absolute;
-    top: 2.75rem;
-    left: 0;
-    height: auto;
-    min-height: 0;
-    max-height: 12rem;
-    /* padding: .5rem; */
-    width: 100%;
-    overflow-y: auto;
-    z-index: 2;
 }
 
-.drop-list {
-    background-color: white;
-    padding: 0 .5rem;
+.chat-list-active {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.media-btn {
+    border-radius: .4rem;
+    border: 1px solid gray;
+    color: gray;
+    height: 1.75rem;
+    width: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.active-media-btn {
+    border-radius: .4rem;
+    border: 1px solid green;
+    height: 1.75rem;
+    width: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+.hide-pic {
+    display: none;
+}
+
+.loggedInUser {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.guestUser {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    gap: .75rem;
-    border-bottom: 1px solid whitesmoke;
 }
 
-.drop-list:last-child {
-    border-bottom: none;
+.lu-msg-box-info {
+    background-color: #644DFF;
+    color: white;
+    border-top-right-radius: .75rem;
+    border-top-left-radius: .75rem;
+    border-bottom-left-radius: .75rem;
 }
 
-.drop-list:hover {
-    background: whitesmoke;
-    cursor: pointer;
+.gu-msg-box-info {
+    background-color: white;
+    color: black;
+    border-top-right-radius: .75rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: .75rem;
+    border-bottom-right-radius: .75rem;
 }
